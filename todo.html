@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<div class="container">
+
+    <h2>My To-Do List</h2>
+
+    <input style="padding: 10px;" type="text" onkeydown="enter(event)">
+
+    <button onclick="addSubmit(this)" class="green" >
+        Add
+    </button>
+
+    <button onclick="del(this)" class="delete">
+        Delete
+    </button>
+
+    <ul>
+        <li>Red</li>
+        <li>Blue</li>
+        <li>Yellow</li>
+        <li>Green</li>
+        <li>Gray</li>
+    </ul>
+
+</div>
+
+    <script src="todo.js"></script>
+</body>
+</html>
