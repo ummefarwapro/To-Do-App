@@ -13,17 +13,17 @@
 
     <h2>My To-Do List</h2>
 
-    <input style="padding: 10px;" type="text" onkeydown="enter(event)">
+    <input style="padding: 10px;" type="text" id="TodoInput" onkeydown="enter(event)">
 
-    <button onclick="addSubmit(this)" class="green" >
+    <button onclick="addSubmit()" class="green" id="ToDoSubmit">
         Add
     </button>
 
-    <button onclick="del(this)" class="delete">
+    <button onclick="deleteAll ()" class="delete" > 
         Delete
     </button>
 
-    <ul>
+    <ul id="TodoList">
         <li>Red</li>
         <li>Blue</li>
         <li>Yellow</li>
@@ -33,6 +33,7 @@
 
 </div>
 
-    <script src="todo.js"></script>
+    <script  src="todo.js"></script>
+    <script type="module" src="todoTask-db.js"></script>
 </body>
 </html>

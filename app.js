@@ -1,10 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
-
-import {
-    getAuth,
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword
-} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
 
 
 const firebaseConfig = {
@@ -18,11 +13,22 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-
 const auth = getAuth(app);
 
 
-// ================= SIGN UP =================
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+
+    console.log("Logged in:", user.email);
+
+
+    window.location.href = "todo.html"
+
+  }
+
+});
+
+// SIGN UP
 
 const signUpBtn = document.getElementById("signUpBtn");
 
@@ -34,7 +40,6 @@ if (signUpBtn) {
         const password = document.getElementById("pswd").value;
 
         console.log("Signup button clicked");
-        console.log(email, password);
 
         createUserWithEmailAndPassword(auth, email, password)
 
@@ -62,20 +67,16 @@ if (signUpBtn) {
 }
 
 
-// ================= LOGIN =================
+// LOGIN 
 
 const loginBtn = document.getElementById("loginBtn");
 
 if (loginBtn) {
 
-    loginBtn.addEventListener("click", function (event) {
-
-        event.preventDefault();
+    loginBtn.addEventListener("click", function () {
 
         const email = document.getElementById("email").value;
         const password = document.getElementById("pswd").value;
-
-        console.log("Login button clicked");
 
         signInWithEmailAndPassword(auth, email, password)
 
@@ -101,3 +102,4 @@ if (loginBtn) {
     });
 
 }
+
